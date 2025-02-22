@@ -176,6 +176,46 @@
           transform: translateY(-3px);
         }
 
+        .google-form-button {
+          display: inline-block;
+          background: linear-gradient(45deg, #3B82F6, #6EE7B7);
+          color: white;
+          text-decoration: none;
+          padding: 20px 40px;
+          font-size: 1.6rem;
+          font-weight: bold;
+          border-radius: 12px;
+          cursor: pointer;
+          transition: all 0.4s ease;
+          box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+          border: 2px solid rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          margin-top: 30px;
+        }
+
+        .google-form-button:hover {
+          background: linear-gradient(45deg, #6EE7B7, #3B82F6);
+          box-shadow: 0 15px 30px rgba(110, 231, 183, 0.4);
+          transform: translateY(-3px) scale(1.02);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .google-form-button:active {
+          transform: translateY(-1px);
+          box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .qr-code-container {
+          margin-top: 20px;
+        }
+
+        .qr-code {
+          width: 200px;
+          height: 200px;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+
         /* Right Side: Quotes */
         .quote-container {
           flex: 1;
@@ -632,7 +672,7 @@
             <a href="#register">Register</a>
           <a href="dashboard.html">Dashboard</a>
             <a href="#contact">Contact</a>
-            
+
         </div>
     </nav>
 
