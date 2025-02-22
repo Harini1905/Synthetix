@@ -159,111 +159,15 @@
     <div class="dashboard-container">
         <h1>Dashboard</h1>
         <div class="dashboard-grid">
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <span class="card-title">Total Participants</span>
-                    <i class="fas fa-users card-icon"></i>
-                </div>
-                <div class="card-value">256</div>
-                <p class="card-description">Active participants in the hackathon</p>
-            </div>
+
 
             <div class="dashboard-card">
                 <div class="card-header">
-                    <span class="card-title">Submit Project Repository</span>
-                    <i class="fas fa-code card-icon"></i>
+                    <span class="card-title">Time Until Hackathon</span>
+                    <i class="fas fa-hourglass-start card-icon"></i>
                 </div>
-                <div class="github-form">
-                    <input type="text" id="github-url" placeholder="Enter GitHub repository URL" class="github-input">
-                    <button onclick="submitRepository()" class="github-submit">Submit Project</button>
-                    <p id="validation-message" class="validation-message"></p>
-                </div>
-                <p class="card-description">Please submit your GitHub repository URL for evaluation.</p>
-            </div>
-
-            <style>
-                .github-form {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    margin: 15px 0;
-                }
-
-                .github-input {
-                    padding: 12px;
-                    border: 2px solid rgba(59, 130, 246, 0.3);
-                    border-radius: 8px;
-                    background: rgba(30, 30, 30, 0.95);
-                    color: white;
-                    font-size: 1rem;
-                    transition: all 0.3s ease;
-                }
-
-                .github-input:focus {
-                    outline: none;
-                    border-color: #3B82F6;
-                    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-                }
-
-                .github-submit {
-                    padding: 12px;
-                    border: none;
-                    border-radius: 8px;
-                    background: linear-gradient(90deg, #3B82F6, #6EE7B7);
-                    color: white;
-                    font-weight: 600;
-                    cursor: pointer;
-                    transition: all 0.3s ease;
-                }
-
-                .github-submit:hover {
-                    transform: translateY(-2px);
-                    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
-                }
-
-                .validation-message {
-                    font-size: 0.9rem;
-                    margin-top: 5px;
-                    color: #EF4444;
-                }
-            </style>
-
-            <script>
-                function submitRepository() {
-                    const input = document.getElementById('github-url');
-                    const validationMessage = document.getElementById('validation-message');
-                    const githubUrl = input.value.trim();
-                    
-                    // Basic GitHub URL validation
-                    const githubRegex = /^https?:\/\/github\.com\/[\w-]+\/[\w-]+(\.git)?$/;
-                    
-                    if (!githubUrl) {
-                        validationMessage.style.color = '#EF4444';
-                        validationMessage.textContent = 'Please enter a GitHub repository URL';
-                        return;
-                    }
-                    
-                    if (!githubRegex.test(githubUrl)) {
-                        validationMessage.style.color = '#EF4444';
-                        validationMessage.textContent = 'Please enter a valid GitHub repository URL';
-                        return;
-                    }
-                    
-                    validationMessage.style.color = '#6EE7B7';
-                    validationMessage.textContent = 'Repository submitted successfully!';
-                    
-                    // Here you can add code to handle the submission
-                    console.log('Submitted repository:', githubUrl);
-                }
-            </script>
-
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <span class="card-title">Time Remaining</span>
-                    <i class="fas fa-clock card-icon"></i>
-                </div>
-                <div class="card-value countdown-value">00:00:00</div>
-                <p class="card-description">Until project submission deadline</p>
+                <div class="card-value pre-event-countdown">Loading...</div>
+                <p class="card-description">Until Synthetix hackathon begins</p>
             </div>
 
             <div class="dashboard-card">
@@ -271,28 +175,21 @@
                     <span class="card-title">Prize Pool</span>
                     <i class="fas fa-trophy card-icon"></i>
                 </div>
-                <div class="card-value">₹100K</div>
+                <div class="card-value">₹30K</div>
                 <p class="card-description">Total prize money for winners</p>
             </div>
         </div>
 
         <div class="dashboard-grid">
-            <div class="dashboard-card">
-                <div class="card-header">
-                    <span class="card-title">Active Teams</span>
-                    <i class="fas fa-people-group card-icon"></i>
-                </div>
-                <div class="card-value">42</div>
-                <p class="card-description">Teams actively working on projects</p>
-            </div>
+
 
             <div class="dashboard-card">
                 <div class="card-header">
                     <span class="card-title">Categories</span>
                     <i class="fas fa-layer-group card-icon"></i>
                 </div>
-                <div class="card-value">5</div>
-                <p class="card-description">Web3, AI/ML, IoT, Mobile, Cloud</p>
+                <div class="card-value">3</div>
+                <p class="card-description">Programming, CAD, Electrical</p>
             </div>
         </div>
 
@@ -317,142 +214,10 @@
                     </div>
                 </div>
             </div>
-
-            <div class="dashboard-card" style="grid-column: span 2;">
-                <div class="card-header">
-                    <span class="card-title">Submission Statistics</span>
-                    <i class="fas fa-chart-bar card-icon"></i>
-                </div>
-                <div style="margin-top: 15px;">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span style="color: #6EE7B7">Web Development</span>
-                        <span>15 Projects</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span style="color: #6EE7B7">AI/ML Solutions</span>
-                        <span>12 Projects</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span style="color: #6EE7B7">IoT Applications</span>
-                        <span>8 Projects</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                        <span style="color: #6EE7B7">Mobile Apps</span>
-                        <span>7 Projects</span>
-                    </div>
-                    <div style="display: flex; justify-content: space-between;">
-                        <span style="color: #6EE7B7">Cloud Solutions</span>
-                        <span>6 Projects</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
-        <div class="dashboard-grid" style="margin-top: 20px;">
-            <div class="dashboard-card" style="grid-column: span 4;">
-                <div class="card-header">
-                    <span class="card-title">Problem Statements</span>
-                    <i class="fas fa-lightbulb card-icon"></i>
-                </div>
-                <div style="margin-top: 15px;">
-                    <div class="problem-statement" onclick="this.classList.toggle('expanded')">
-                        <div class="problem-header">
-                            <span style="color: #6EE7B7">AI-Powered Healthcare Assistant</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="problem-content">
-                            <p>Develop an AI-powered healthcare assistant that can help diagnose common ailments, provide basic medical advice, and assist in emergency situations. Focus on accuracy, user privacy, and real-time response.</p>
-                            <div class="problem-tags">
-                                <span>AI/ML</span>
-                                <span>Healthcare</span>
-                                <span>Python</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="problem-statement" onclick="this.classList.toggle('expanded')">
-                        <div class="problem-header">
-                            <span style="color: #6EE7B7">Smart City Traffic Management</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="problem-content">
-                            <p>Create an IoT-based traffic management system that can optimize traffic flow, reduce congestion, and improve emergency vehicle response times using real-time data analytics.</p>
-                            <div class="problem-tags">
-                                <span>IoT</span>
-                                <span>Data Analytics</span>
-                                <span>Web3</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="problem-statement" onclick="this.classList.toggle('expanded')">
-                        <div class="problem-header">
-                            <span style="color: #6EE7B7">Decentralized Education Platform</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        <div class="problem-content">
-                            <p>Build a blockchain-based platform for verifying academic credentials and sharing educational resources, ensuring transparency and reducing credential fraud.</p>
-                            <div class="problem-tags">
-                                <span>Blockchain</span>
-                                <span>Web3</span>
-                                <span>Education</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <style>
-            .problem-statement {
-                background: rgba(30, 30, 30, 0.95);
-                border-radius: 10px;
-                margin-bottom: 15px;
-                overflow: hidden;
-                transition: all 0.3s ease;
-            }
-
-            .problem-header {
-                padding: 15px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
-            }
-
-            .problem-header i {
-                transition: transform 0.3s ease;
-            }
-
-            .problem-content {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                padding: 0 15px;
-            }
-
-            .problem-statement.expanded .problem-content {
-                max-height: 500px;
-                padding: 0 15px 15px;
-            }
-
-            .problem-statement.expanded .problem-header i {
-                transform: rotate(180deg);
-            }
-
-            .problem-tags {
-                display: flex;
-                gap: 10px;
-                margin-top: 10px;
-            }
-
-            .problem-tags span {
-                background: rgba(59, 130, 246, 0.2);
-                color: #6EE7B7;
-                padding: 5px 10px;
-                border-radius: 15px;
-                font-size: 0.8rem;
-            }
-        </style>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="countdown.js"></script>
