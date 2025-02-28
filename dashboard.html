@@ -16,6 +16,44 @@
             overflow-x: hidden;
         }
 
+        body::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 4px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #6EE7B7, #3B82F6);
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #3B82F6, #6EE7B7);
+        }
+
+        .updates-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .updates-container::-webkit-scrollbar-track {
+            background: rgba(20, 20, 20, 0.95);
+            border-radius: 4px;
+        }
+
+        .updates-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #6EE7B7, #3B82F6);
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .updates-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #3B82F6, #6EE7B7);
+        }
+
         nav {
             width: 100%;
             display: flex;
