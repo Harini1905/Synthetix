@@ -16,7 +16,27 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-          transition: transform 0.3s, filter 0.3s;
+        /* Scrollbar Styling */
+        body::-webkit-scrollbar {
+          width: 8px;
+        }
+
+        body::-webkit-scrollbar-track {
+          background: rgba(20, 20, 20, 0.95);
+          border-radius: 4px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+          background: linear-gradient(180deg, #6EE7B7, #3B82F6);
+          border-radius: 4px;
+          transition: background 0.3s ease;
+        }
+
+        body::-webkit-scrollbar-thumb:hover {
+          background: linear-gradient(180deg, #3B82F6, #6EE7B7);
+        }
+
+        transition: transform 0.3s, filter 0.3s;
         }
 
         .icon img {
