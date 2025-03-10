@@ -364,7 +364,7 @@
                         <li style="margin-bottom: 10px;"><i class="fas fa-book" style="color: #3B82F6; margin-right: 10px;"></i>Documentation: Include a detailed pdf explain project features</li>
                     </ul>
                     <div style="margin-bottom: 20px;">
-                        <label for="team-select" style="display: block; color: #6EE7B7; margin-bottom: 10px; font-weight: 600;">Select Your Team<span style="color: #EF4444;">*</span></label>
+                        <label for="team-select" style="display: block; color: #6EE7B7; margin-bottom: 10px; font-weight: 600;">Select Your Team<span id="team-required" style="color: #EF4444;">*</span></label>
                         <select id="team-select" style="width: 100%; padding: 12px; background: rgba(30, 30, 30, 0.95); color: white; border: 2px solid #3B82F6; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.borderColor='#6EE7B7'" onmouseout="this.style.borderColor='#3B82F6'" required>
                             <option value="" disabled selected>Choose your team...</option>
                             <option value="team1">Team Alpha</option>
@@ -374,15 +374,28 @@
                             <option value="team5">Team Epsilon</option>
                         </select>
                     </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="submissionUrl" style="display: block; color: #6EE7B7; margin-bottom: 10px; font-weight: 600;">Submission URL<span id="url-required" style="color: #EF4444;">*</span></label>
+                        <input type="url" id="submissionUrl" name="submissionUrl" style="width: 100%; padding: 12px; background: rgba(30, 30, 30, 0.95); color: white; border: 2px solid #3B82F6; border-radius: 8px; font-size: 1rem; margin-bottom: 20px;" required placeholder="Enter your submission URL">
+                    </div>
                     <button id="submit-project" style="display: inline-block; padding: 12px 30px; background: linear-gradient(90deg, #6EE7B7, #3B82F6); border: none; border-radius: 8px; color: white; text-decoration: none; font-weight: 600; transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; opacity: 0.6;" disabled>
                         <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Submit Project
                     </button>
                     <script>
                         const teamSelect = document.getElementById('team-select');
                         const submitButton = document.getElementById('submit-project');
+                        const submissionUrl = document.getElementById('submissionUrl');
+                        const teamRequired = document.getElementById('team-required');
+                        const urlRequired = document.getElementById('url-required');
 
-                        teamSelect.addEventListener('change', function() {
-                            if (this.value) {
+                        function validateForm() {
+                            const hasTeam = teamSelect.value !== '';
+                            const hasUrl = submissionUrl.value.trim() !== '';
+
+                            teamRequired.style.display = hasTeam ? 'none' : 'inline';
+                            urlRequired.style.display = hasUrl ? 'none' : 'inline';
+
+                            if (hasTeam && hasUrl) {
                                 submitButton.style.opacity = '1';
                                 submitButton.style.cursor = 'pointer';
                                 submitButton.disabled = false;
@@ -391,7 +404,10 @@
                                 submitButton.style.cursor = 'not-allowed';
                                 submitButton.disabled = true;
                             }
-                        });
+                        }
+
+                        teamSelect.addEventListener('change', validateForm);
+                        submissionUrl.addEventListener('input', validateForm);
 
                         submitButton.addEventListener('mouseover', function() {
                             if (!this.disabled) {
