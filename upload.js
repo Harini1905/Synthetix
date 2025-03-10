@@ -1,10 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const paymentInput = document.getElementById('payment');
     const paymentPreview = document.getElementById('paymentPreview');
+    const projectUrlInput = document.getElementById('projectUrl');
+    const submissionUrlInput = document.getElementById('submissionUrl');
 
     paymentInput.addEventListener('change', function(e) {
         const file = e.target.files[0];
-        
+
         // Validate file type
         if (!file.type.startsWith('image/')) {
             alert('Please upload an image file');
@@ -29,4 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         reader.readAsDataURL(file);
     });
-}));
+
+    // Add URL validation for project URL
+    projectUrlInput.addEventListener('input', function(e) {
+        try {
+            new URL(this.value);
+            this.setCustomValidity('');
+        } catch (err) {
+            this.setCustomValidity('Please enter a valid URL');
+        }
+    });
+
+    // Add URL validation for submission URL
+    submissionUrlInput.addEventListener('input', function(e) {
+        try {
+            new URL(this.value);
+            this.setCustomValidity('');
+        } catch (err) {
+            this.setCustomValidity('Please enter a valid submission URL');
+        }
+    });
+});
