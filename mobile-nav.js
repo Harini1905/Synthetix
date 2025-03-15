@@ -56,11 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle window resize
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
         if (window.innerWidth > 768) {
             navLinks.style.display = 'flex';
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
         } else if (!navLinks.classList.contains('active')) {
             navLinks.style.display = 'none';
         }
-    });
+    };
+
+    window.addEventListener('resize', handleResize);
+    // Initial state setup
+    handleResize();
 });
